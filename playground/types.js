@@ -1,88 +1,42 @@
 /* eslint-disable */
-/*
-const name = 'wes';
-const middle = "topher";
-const last = `bos`;
 
-const sentence = "shes's so \"cool\"";
-const sentence2 = `shes's so "cool"`;
-
-const song = `Ohhh
-
-ya
-
-I like
-pizza`;
-
-const hello = 'hello my name is ' + name + ". Nice to meet you";
-
-let hello2 = 'hello my name is ';
-hello2 = hello2 + name;
-hello2 = hello2 + ' Nice to meet you';
-
-const hello = `hello my name is ${name}. Nice to meet you. I am ${1 + 100} years old`;
-
-const html = `
-  <div>
-    <h2>${name}</h2>
-    <p>${hello}</p>
-  </div>
-`;
-
-document.body.innerHTML = html;
-
-*/
-
-// const age = 100.5;
 // const name = 'wes';
+// const middle = "topher";
+// const last = `bos`;
 
-// const a = 10;
-// const b = 20;
-/*
-const smarties = 20;
-const kids = 3;
-const eachKidGets = Math.floor(smarties / kids);
-const dadGets = smarties % kids;
-console.log(`Each kids gets ${eachKidGets}`);
+// const sentence = "shes's so cool";
+// const sentence2 =  `she\'s so "cool"`;
 
-const price = 1034;
-*/
+// const song = `Ohhh
+// ya
 
+// I like
 
-/*
-const person = {
-  first: 'wes',
-  last: 'bos',
-  age: 100
-};
+// pizza`;
 
+// const html = `
+// <div>
+//   <h2></h2>
+// </div>
 
-let dog;
-console.log(dog);
-dog = 'snickers';
+// `;
 
+// const age = 27;
+// const name = 'Sara';
 
-let somethingUndefined;
-const somethingNull = null;
+// const smarties = 20;
+// const kids = 3;
+// const eachKid = Math.floor(smarties / kids);
 
-const cher = {
-  first: 'cher'
-};
+// var remainder = smarties % kids;  
 
-const teller = {
-  first: 'Raymond',
-  last: 'Teller'
-}
-
-teller.first = 'Teller';
-teller.last = null;
-
-*/
+// console.log(`Each kid gets ${eachKid} smarties.`, remainder);
 
 let isDrawing = false;
-let age = 18;
-const ofAge = age > 19;
-console.log(ofAge);
 
+let age = 18;
 age = 100;
-let age2 = 100;
+const ofAge = age > 19;
+
+
+console.log(ofAge); 
