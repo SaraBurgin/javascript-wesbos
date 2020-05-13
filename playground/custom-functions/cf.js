@@ -1,31 +1,31 @@
-// Function Definition
 function calculateBill(billAmount, taxRate = 0.13, tipRate = 0.15) {
-  // this is the function body
-  console.log('Running Calculate Bill!!');
-  const total = billAmount + billAmount * taxRate + billAmount * tipRate;
-  return total;
+        console.log('Running Calculate Bill');
+        const total = billAmount * (1 + taxRate + tipRate);
+        return total;
 }
+console.log(calculateBill(100, undefined, 0.2));
 
-// Function Call. Or **Run**
+// Creating variables with wes#s ammounts
 const wesTotal = 500;
-const wesTaxRate = 0.3;
+const wesTaxRate = 0.13;
+
+// Function call
 // const myTotal = calculateBill(wesTotal, wesTaxRate);
+// console.log(myTotal);
 
-// Function Definition
+// Function definition
 function sayHiTo(firstName) {
-  return `Hello ${firstName}`;
+        return `Hello ${firstName}`;
 }
-
-// const greeting = sayHiTo('Wes');
+// const greeting = sayHiTo('Sara');
 // console.log(greeting);
 
 function doctorize(name) {
-  return `Dr. ${name}`;
+        return `Dr. ${name}`;
 }
 
 function yell(name = 'Silly Goose') {
-  return `HEY ${name.toUpperCase()}`;
+        return `HEY ${name.toUpperCase()}`;
 }
-
-const myBill4 = calculateBill(100, undefined, 0.2);
-console.log(myBill4);
+// Brackets go first, so first it runs the function doctorize with its argument and that value will be passed into yell as its argument
+// yell(doctorize('wes'));
