@@ -1,56 +1,53 @@
 console.log('it works!');
 
-const myParagraph = document.createElement('p');
-myParagraph.textContent = 'I am a P';
-myParagraph.classList.add('special');
-console.log(myParagraph);
+// Creating elements (HTML) in JS
 
-const myImage = document.createElement('img');
-myImage.src = 'https://picsum.photos/500';
-myImage.alt = 'Nice photo';
+// const myParagraph = document.createElement('p');
+// myParagraph.textContent = 'I am a P';
+// myParagraph.classList.add('special');
 
-const myDiv = document.createElement('div');
-myDiv.classList.add('wrapper');
-console.log(myDiv);
+// const myImage = document.createElement('img');
+// myImage.src = 'https://picsum.photos/500';
+// myImage.alt = 'Nice photo';
 
-myDiv.appendChild(myParagraph);
-myDiv.appendChild(myImage);
+// const myDiv = document.createElement('div');
+// myDiv.classList.add('wrapper');
 
-document.body.appendChild(myDiv);
+// myDiv.appendChild(myParagraph);
+// myDiv.appendChild(myImage);
 
-// oh shoot! we need to add somethint to the top. like a heading!
-const heading = document.createElement('h2');
-heading.textContent = 'Cool Things';
+// document.body.appendChild(myDiv);
 
-myDiv.insertAdjacentElement('beforebegin', heading);
+// const heading = document.createElement('h2');
+// heading.textContent = 'Hello, this is your heading';
 
-// <ul>
-// <li>One</li>
-// <li>two</li>
-// <li>three</li>
-// <li>four</li>
-// <li>five</li>
-// </ul>
+// myDiv.insertAdjacentElement('beforebegin', heading);
 
-const list = document.createElement('ul');
-const li = document.createElement('li');
-li.textContent = 'three';
-list.appendChild(li);
+// Create an unordered list with 5 items inside
 
-document.body.insertAdjacentElement('afterbegin', list);
+const myUl = document.createElement('ul');
+myUl.textContent = 'My unordered list';
 
-const li5 = document.createElement('li');
-li5.textContent = 'Five';
-list.append(li5);
+const liOne = document.createElement('li');
+liOne.textContent = 'One';
+myUl.appendChild(liOne);
 
-const li1 = li5.cloneNode(true);
-li1.textContent = 'one';
-list.insertAdjacentElement('afterbegin', li1);
+const liTwo = document.createElement('li');
+liTwo.textContent = 'Two';
+myUl.appendChild(liTwo);
 
-const li4 = document.createElement('li');
-li4.textContent = 'four';
-li5.insertAdjacentElement('beforebegin', li4);
+const liThree = document.createElement('li');
+liThree.textContent = 'Three';
+myUl.appendChild(liThree);
 
-const li2 = document.createElement('li');
-li2.textContent = 'two';
-li1.insertAdjacentElement('afterend', li2);
+const liFour = document.createElement('li');
+liFour.textContent = 'Four';
+myUl.appendChild(liFour);
+
+const liFive = document.createElement('li');
+liFive.textContent = 'Five';
+myUl.insertAdjacentElement('beforeend', liFive);
+
+document.body.appendChild(myUl);
+
+console.log(myUl);
