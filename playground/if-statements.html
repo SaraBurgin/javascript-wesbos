@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>If Statements</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>If Statements</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <p>This is the body.</p>
+    <script>
+      // function slugify(sentence, lowercase) {
+      //   const slug = sentence.replace(/\s/g, '-');
+      //   if (lowercase) {
+      //     return slug.toLowerCase();
+      //   }
+      //   return slug;
+      // }
 
-<body>
-  * empty array
-  * empty object
-  * 1
-  * -10
-  * full string
-  * a string of "0"
-  * 0
-  * undefined variable
-  * Variable set to null
-  * a variable set to `"hello" - 10` NaN
-  * empty string
+      // const name = 'wes';
+      // const last = 'bos';
 
-  <script>
+      // if (name === 'scott' || (name === 'wes' && last === 'bos')) {
+      //   console.log('Your name and surname is cool');
+      // }
 
-    function slugify(sentence, lowercase) {
-      let slug = sentence.replace(/\s/g, '-');
-      if (lowercase) {
-        return slug.toLowerCase();
+      // if ('awesome'.includes(name)) {
+      //   console.log(`${name} is definitely awesome!`);
+      // }
+
+      // function nameIsAwesome(name) {
+      //   return 'awesome'.includes(name);
+      // }
+      // if (nameIsAwesome('wes')) {
+      //   console.log('COOL NAME WES');
+      // }
+
+      // const dog = '';
+      // if (dog) {
+      //   console.log('You have a dog');
+      // } else {
+      //   console.log('You don´t have a dog');
+      // }
+
+      const name = '';
+      if (!name) {
+        console.log('Your name did not come up in converstaion');
       }
-      return slug;
-    }
+      const count = 65748;
+      const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} ${word} in your cart`;
 
-  </script>
-</body>
-
+      console.log(sentence);
+    </script>
+  </body>
 </html>
