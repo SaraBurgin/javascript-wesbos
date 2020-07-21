@@ -1,0 +1,6 @@
+console.log('it works!');
+const video = document.querySelector('.webcam');
+const canvas = document.querySelector('.video');
+const ctx = canvas.getContext;
+const faceCanvas = document.querySelector('.face');
+console.log(webcam, video, face);

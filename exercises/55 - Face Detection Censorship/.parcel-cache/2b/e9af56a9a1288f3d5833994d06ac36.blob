@@ -1,0 +1,59 @@
+console.log('it works!');
+const video = document.querySelector('video.webcam');
+const canvas = document.querySelector('canvas.video');
+const ctx = canvas.getContext('2d');
+const faceCanvas = document.querySelector('canvas.face');
+const faceCtx = faceCanvas.getContext('2d');
+const faceDetector = new window.FaceDetector(); // Write a function that will populate(show) the users video
+// 1° What we have done is create the function and make it async because sometimes stream takes a while to start so it awaits for the camera to start and then loads the function
+// with navigator.mediaDevices.getUserMedia() we grab the feed off the users webcam, then we set the object to be the stream and we went ahead and played it with await video.play();
+
+async function populateVideo() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      width: 1280,
+      height: 720
+    }
+  });
+  video.srcObject = stream;
+  await video.play(); // Also await here because sometimes playing also takes a second or two and that will wait for it to start playing
+  // size the canvases to be the same size as the video
+
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  faceCanvas.width = video.videoWidth;
+  faceCanvas.height = video.videoHeight;
+} // We want to detect faces that are in the shot
+
+
+async function detect() {
+  const faces = await faceDetector.detect(video); // Ask the browser when the next animation frame is, and tell it to run detect for us. This below is called recursion, this happens when a function calls itself inside of itself. It will run infinitely until there is an exit condition.
+
+  faces.forEach(drawFace);
+  faces.forEach(censor);
+  requestAnimationFrame(detect);
+}
+
+function drawFace(face) {
+  const {
+    width,
+    height,
+    top,
+    left
+  } = face.boundingBox;
+  ctx.clearRect(0, 0, canvas.width, canvas.videoHeight);
+  ctx.strokeStyle = '#ffc600';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(left, top, width, height);
+}
+
+function censor({
+  boundingBox: face
+}) {
+  // draw the small face
+  faceCtx.drawImage(video, 0, 0); // 5 source args - about how to pull data out of this video
+  // 4 draw args - about how we paint it into the square
+  // take that face back out and draw it back at normal size
+}
+
+populateVideo().then(detect);

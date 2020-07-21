@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Censorship</title>
+    <link rel="stylesheet" href="/base.bc6b5650.css">
+    <style><div></div></style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <video class="webcam"></video>
+      <canvas class="video"></canvas>
+      <canvas class="face"></canvas>
+    </div>
+    <script src="/pixelated-face.a8fd0d07.js"></script>
+  </body>
+</html>
+

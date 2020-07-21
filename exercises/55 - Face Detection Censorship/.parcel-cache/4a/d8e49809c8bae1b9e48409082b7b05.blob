@@ -1,0 +1,2 @@
+console.log('it works!');
+const allElements = document.querySelector('');
