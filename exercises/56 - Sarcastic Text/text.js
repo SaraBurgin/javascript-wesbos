@@ -48,6 +48,7 @@ function handleInput(e) {
 }
 
 textArea.addEventListener('input', handleInput);
+
 function handleFilter() {
         transformText(textArea.value);
 }
