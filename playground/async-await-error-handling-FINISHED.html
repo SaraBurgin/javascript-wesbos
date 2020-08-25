@@ -1,64 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Async Await</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Async Await</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
-
-<body>
-  <script>
-    function wait(ms = 0) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-      })
-    }
-
-    function makePizza(toppings = []) {
-      return new Promise(function (resolve, reject) {
-        // reject if people try with pineapple
-        if (toppings.includes('pineapple')) {
-          reject('Seriously? Get out 🍍');
-        }
-        const amountOfTimeToBake = 500 + (toppings.length * 200);
-        // wait 1 second for the pizza to cook:
-        setTimeout(function () {
-          // when you are ready, you can resolve this promise
-          resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
-        }, amountOfTimeToBake);
-        // if something went wrong, we can reject this promise;
-      });
-    }
-
-    function handleError(err) {
-      console.log('ohhh noooo');
-      console.log(err);
-    }
-
-    function handleDisgustingPizza() {
-
-    }
-    async function go() {
-      const pizza = await makePizza(['pineapple']).catch(handleDisgustingPizza);
-      return pizza;
-    }
-
-    // catch it at run time
-    go().catch(handleError);
-    // make a safe function with a HOF
-    function makeSafe(fn, errorHandler) {
-      return function () {
-        fn().catch(errorHandler)
+  <body>
+    <script>
+      function wait(ms = 0) {
+        return new Promise((resolve) => {
+          setTimeout(resolve, ms);
+        });
       }
-    }
 
-    const safeGo = makeSafe(go, handleError);
+      function makePizza(toppings = []) {
+        return new Promise(function(resolve, reject) {
+          // reject if people try with pineapple
+          if (toppings.includes('pineapple')) {
+            reject('Seriously? Get out 🍍');
+          }
+          const amountOfTimeToBake = 500 + toppings.length * 200;
+          // wait 1 second for the pizza to cook:
+          setTimeout(function() {
+            // when you are ready, you can resolve this promise
+            resolve(
+              `Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`,
+            );
+          }, amountOfTimeToBake);
+          // if something went wrong, we can reject this promise;
+        });
+      }
+      // Whenever you mark a function as async it will return a promise which means we can use .catch or .then on them. Without async it is just a regular function that will return the data that you want.
 
-    safeGo();
+      // HOW TO HANDLE ERRORS WITH ASYNC AWAIT
+      // Option 1 TRY / CATCH
+      async function go() {
+        try {
+          const pizza = await makePizza(['pineapple']);
+          console.log(pizza);
+        } catch (err) {
+          console.log('Oh no!!!');
+          console.log(err);
+        }
+      }
 
-  </script>
-</body>
+      go();
 
+      // Option 2 - using await with catch. Handling the error at the time that you define the function.
+      function handleError(err) {
+        console.log('Ohhhh no');
+        console.log(err);
+      }
+
+      async function go2() {
+        const pizza = await makePizza(['pineapple']).catch(handleError);
+        console.log(pizza);
+      }
+
+      go2();
+
+      // MOST USED - Option 3 - handle the error when we call the async function
+      function handleError2(err) {
+        console.log('Ohhhh no');
+        console.log(err);
+      }
+
+      async function go3() {
+        const pizza = await makePizza(['pineapple']);
+        console.log(pizza);
+      }
+
+      // This is catching it at runtime
+      go3().catch(handleError2);
+
+      // Higher order function - function that returns another function
+      // Option 4 make a safe function with a HOF (Higher order function)
+      function makeSafe(fn, errorHandler) {
+        return function() {
+          fn().catch(errorHandler);
+        };
+      }
+
+      // unsafe function
+      go3();
+
+      // safe function
+      const safeGo = makeSafe(go, handleError);
+      safeGo();
+    </script>
+  </body>
 </html>
