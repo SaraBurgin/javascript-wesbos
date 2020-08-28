@@ -9,3 +9,5 @@ button.addEventListener('click', handleButtonClick);
 
 // A file is a module, when you use it to share functionality between files.
 // Modules have their own scope.
+
+// Super important to give a type in your html script type="module".
