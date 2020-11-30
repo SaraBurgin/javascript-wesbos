@@ -1,7 +1,9 @@
 
 # JavaScript Wes Bos course
 
-These are the starter files and solutions to the course (https://BeginnerJavaScript.com) course
+A fun, exercise heavy approach to learning Modern JavaScript. 
+
+A rock solid understanding of JavaScript is essential for success, no matter which framework you use. This course will give you that.
 
 ## Community Resources
 
