@@ -1,7 +1,7 @@
 
 # JavaScript Wes Bos course
 
-These are the starter files and solutions to the [Beginner JavaScript](https://BeginnerJavaScript.com) course
+These are the starter files and solutions to the course (https://BeginnerJavaScript.com) course
 
 ## Community Resources
 
